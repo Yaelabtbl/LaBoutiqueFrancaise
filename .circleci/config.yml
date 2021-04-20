@@ -32,5 +32,22 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
+  deploy:
+    docker:
+      - image: circleci/php:7.4-node-browsers
+    steps:
+      - checkout
+      - add_ssh_key:
+          fingerprints:
+            - "d1:dd:d4:56:00:41:a8:9e:d2:88:8f:e0:a0:56:9d:df"
+
+      - run:
+          name: Ma premiere connexion a ma vm
+          command: |
+            ssh azureuser@51.103.64.4
+            exit
+
+
+
 
 
