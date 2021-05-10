@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Deployer
           command: |
-            dep build
+            dep deploy
 workflows:
   version: 2
   notify_deploy:

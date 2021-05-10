@@ -30,8 +30,12 @@ host('51.103.64.4')
     
 // Tasks
 
-task('build', function () {
-    run('cd {{release_path}} && build');
+task('deploy', [
+    'rename_env'
+]);
+
+task('rename_env', function () {
+    run('cp ~/.env ~/{{application}}/');
 });
 
 // [Optional] if deploy fails automatically unlock.
