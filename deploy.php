@@ -31,10 +31,22 @@ host('51.103.64.4')
 // Tasks
 
 task('deploy', [
-    'rename_env'
+    'deploy:info',
+    'deploy:prepare','deploy:lock',
+    'deploy:release',
+    'deploy:update_code',
+    'deploy:clear_paths',
+    'deploy:shared',
+    'deploy:rename_env',
+    'deploy:vendors','deploy:cache:clear',
+    'deploy:cache:warmup',
+    'deploy:writable',
+    'deploy:symlink',
+    'deploy:unlock',
+    'cleanup','success'
 ]);
 
-task('rename_env', function () {
+task('deploy:rename_env', function () {
     run('cp ~/.env ~/{{application}}/');
 });
 
