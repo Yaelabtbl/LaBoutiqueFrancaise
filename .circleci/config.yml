@@ -47,6 +47,7 @@ jobs:
       - run:
           name: Deployer
           command: |
+            set -e
             dep deploy
 workflows:
   version: 2
