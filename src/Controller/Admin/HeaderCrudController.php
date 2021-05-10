@@ -4,6 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Header;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class HeaderCrudController extends AbstractCrudController
 {

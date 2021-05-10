@@ -75,7 +75,7 @@ class ResetPasswordController extends AbstractController
 
         if (!$reset_password)
         {
-            return $this->redirectToRoute('reset_password');
+             $this->redirectToRoute('reset_password');
         }
 
         // Verifier si le createdAt = now - 3h
