@@ -34,4 +34,26 @@ class HomeController extends AbstractController
         ]);
 
     }
+    /**
+     * @Route("/ajax/IsBest", name="ajaxIsBest")
+     */
+    public function ajaxIsBest(): Response
+    {
+        $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
+        $productencode = [];
+
+        foreach ($products as $key => $product)
+        {
+            $productencode[$key] = json_encode([
+                'slug'=>$product->getSlug(),
+                'illustration'=>$product->getIllustration(),
+                'name'=>$product->getName(),
+                'subtitle'=>$product->getSubtitle(),
+                'price'=>$product->getPrice()
+            ]);
+        }
+
+        return new JsonResponse($productencode);
+    }
+
 }
